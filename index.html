@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Visualizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">SORT</span>
+        <span class="logo-accent">VIZ</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <p class="tagline">array sorting · real-time visualization</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="controls-panel">
+
+      <div class="control-group">
+        <button class="btn-primary newArray">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          Generate Array
+        </button>
+      </div>
+
+      <div class="control-group player-controls">
+        <button class="btn-control btn-pause" id="pauseBtn" disabled>
+          <svg id="pauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+          <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none; vertical-align: middle;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span id="pauseBtnText" style="vertical-align: middle; margin-left: 6px;">Pause</span>
+        </button>
+        <button class="btn-control btn-stop" id="stopBtn" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;"><rect x="4" y="4" width="16" height="16"></rect></svg>
+          Stop
+        </button>
+      </div>
+
+      <div class="control-group sliders">
+        <div class="slider-wrap">
+          <label for="arr_sz">
+            <span class="label-key">SIZE</span>
+            <span class="label-val" id="sz_val">60</span>
+          </label>
+          <input id="arr_sz" type="range" min="5" max="100" step="1" value="60" />
+        </div>
+        <div class="slider-wrap">
+          <label for="speed_input">
+            <span class="label-key">SPEED</span>
+            <span class="label-val" id="sp_val">60</span>
+          </label>
+          <input id="speed_input" type="range" min="20" max="300" step="10" value="60" />
+        </div>
+      </div>
+
+      <div class="control-group algo-btns">
+        <button class="btn-algo selectionSort" data-algo="selection">Selection</button>
+        <button class="btn-algo bubbleSort"    data-algo="bubble">Bubble</button>
+        <button class="btn-algo insertionSort" data-algo="insertion">Insertion</button>
+        <button class="btn-algo quickSort"     data-algo="quick">Quick</button>
+        <button class="btn-algo mergeSort"     data-algo="merge">Merge</button>
+      </div>
+
+    </div>
+
+    <div class="viz-wrapper">
+      <div class="viz-label">array · <span id="active-algo">idle</span></div>
+      <div id="bars" class="bars-container"></div>
+      <div class="viz-floor"></div>
+    </div>
+
+    <div class="legend">
+      <span class="legend-item"><span class="dot dot-default"></span>unsorted</span>
+      <span class="legend-item"><span class="dot dot-compare"></span>comparing</span>
+      <span class="legend-item"><span class="dot dot-pivot"></span>pivot / key</span>
+      <span class="legend-item"><span class="dot dot-sorted"></span>sorted</span>
+    </div>
+  </main>
+
+  <script src="sorting.js"></script>
+  <script src="bubble_sort.js"></script>
+  <script src="insertion_sort.js"></script>
+  <script src="merge_sort.js"></script>
+  <script src="quick_sort.js"></script>
+  <script src="selection_sort.js"></script>
+</body>
+</html>
