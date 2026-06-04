@@ -135,10 +135,6 @@ main {
 
 /* ─── Controls Dashboard ──────────────────────────────── */
 .controls-panel {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 2rem;
   padding: 1.5rem 2rem;
   background: var(--bg-panel);
   border: 1px solid var(--border);
@@ -358,6 +354,13 @@ input[type="range"]:disabled {
   box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
 }
 
+.btn-control.btn-step:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
 
 /* ─── Visualizer ──────────────────────────────────────── */
 .viz-wrapper {
@@ -549,4 +552,81 @@ input[type="range"]:disabled {
   .legend {
     gap: 1rem;
   }
+}
+
+/* ─── Real-time Stats ────────────────────────────────── */
+.stats-panel .stat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-panel .stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hi) !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1) !important;
+}
+
+.stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--muted) !important;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-family: 'Space Mono', monospace;
+  margin-top: 4px;
+}
+
+/* ─── Performance Comparison History ──────────────────── */
+.performance-comparison {
+  margin-top: 3rem;
+}
+
+.performance-comparison h3 {
+  font-family: 'Space Mono', monospace;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.performance-comparison .table-responsive {
+  background: var(--bg-panel);
+  border: 1px solid var(--border) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.performance-comparison table {
+  background: transparent !important;
+  --bs-table-bg: transparent !important;
+}
+
+.performance-comparison table th {
+  border-bottom: 2px solid var(--border) !important;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.performance-comparison table td {
+  border-bottom: 1px solid var(--border) !important;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text) !important;
+}
+
+.performance-comparison table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.performance-comparison table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
 }
